@@ -1,0 +1,2 @@
+token = '7799996577:AAGFh7IWQPU_HwWFEEu2Ou8nsAs_1gP30Us'
+channel = '-1002439532114'
