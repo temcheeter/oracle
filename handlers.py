@@ -52,7 +52,7 @@ async def forecast(msg: Message, bot: Bot, state: FSMContext):
                 await msg.bot.send_chat_action(msg.from_user.id, action=ChatAction.UPLOAD_PHOTO)
                 await msg.answer_photo(
                     BufferedInputFile(
-                        predict(txt),
+                        await predict(txt),
                         'forecast.png'
                     )
                 )
@@ -62,7 +62,7 @@ async def forecast(msg: Message, bot: Bot, state: FSMContext):
                 await msg.bot.send_chat_action(msg.from_user.id, action=ChatAction.UPLOAD_PHOTO)
                 await msg.answer_photo(
                     BufferedInputFile(
-                        predict(txt),
+                        await predict(txt),
                         'forecast.png'
                     )
                 )
@@ -73,14 +73,14 @@ async def forecast(msg: Message, bot: Bot, state: FSMContext):
                     await msg.bot.send_chat_action(msg.from_user.id, action=ChatAction.UPLOAD_PHOTO)
                     await msg.answer_photo(
                         BufferedInputFile(
-                            predict(txt),
+                            await predict(txt),
                             'forecast.png'
                         ),
                         reply_markup=kb.main_kb
                     )
                 else:
                     await msg.answer('Тебе пока что доступен только январь😢', reply_markup=kb.main_kb)
-                await state.clear()
+            await state.clear()
         except:
             await msg.answer('Что-то пошло не так, попробуй ещё раз', reply_markup=ReplyKeyboardRemove())
             await state.set_state(Form.go)
