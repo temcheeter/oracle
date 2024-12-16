@@ -31,7 +31,7 @@ async def predict(predict_date: str):
         wrapped_text = textwrap.fill(text, width=23)
     date, time = time_n_date()
 
-    idraw.text((414, 400), predict_date, 'black', font=headline, anchor='mm')
+    idraw.text((414, 45g0), predict_date, 'black', font=headline, anchor='mm')
     idraw.text((80, 580), wrapped_text, font=forecast, fill='#33273c', anchor='la')
     idraw.text((15, 1745), date, font=dateline, anchor='lm')
     idraw.text((400, 1745), time, font=dateline, anchor='rm')
