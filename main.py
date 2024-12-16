@@ -4,7 +4,7 @@ from aiogram.types import Message
 from config import *
 import keyboard as kb
 import asyncio
-from callback import rt as call_rt
+from handlers import rt as call_rt
 
 bot = Bot(token)
 dp = Dispatcher()

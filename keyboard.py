@@ -1,3 +1,5 @@
+from bisect import insort_left
+
 from aiogram.utils.keyboard import(InlineKeyboardMarkup,
                                    InlineKeyboardButton,
                                    ReplyKeyboardMarkup,
@@ -19,4 +21,13 @@ go_kb = InlineKeyboardMarkup(inline_keyboard=[
             InlineKeyboardButton(text='Начать💥!', callback_data='go')
         ]
     ]
+)
+
+main_kb = ReplyKeyboardMarkup(keyboard=[
+        [
+            KeyboardButton(text='Мне повезёт!🥳')
+        ]
+    ],
+    resize_keyboard=True,
+    one_time_keyboard=True
 )
