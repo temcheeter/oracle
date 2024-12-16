@@ -1,6 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
 from io import BytesIO
+from calendar import month_name
 import textwrap
 from pytz import timezone
 import json
@@ -24,6 +25,7 @@ async def predict(predict_date: str):
     headline = ImageFont.truetype('century_bold.ttf', size=90)
     forecast = ImageFont.truetype('century_regular.ttf', size=48)
     dateline = ImageFont.truetype('Segoe-UI-Variable-Static-Text-Semibold.ttf', size=36)
+    dash = ImageFont.truetype('Segoe-UI-Variable-Static-Text-Semibold.ttf', size=48)
 
     with open('forecasts.json', 'r', encoding='utf-8') as f:
         dictionary = json.load(f)
@@ -31,8 +33,8 @@ async def predict(predict_date: str):
         wrapped_text = textwrap.fill(text, width=23)
     date, time = time_n_date()
 
-    idraw.text((414, 400), predict_date, 'black', font=headline, anchor='mm')
-    idraw.text((80, 580), wrapped_text, font=forecast, fill='#33273c', anchor='la')
+    idraw.text((414, 500), predict_date, 'black', font=headline, anchor='mm')
+    idraw.text((360, 780), wrapped_text, font=forecast, fill='#33273c', anchor='mm')
     idraw.text((15, 1745), date, font=dateline, anchor='lm')
     idraw.text((400, 1745), time, font=dateline, anchor='rm')
 
